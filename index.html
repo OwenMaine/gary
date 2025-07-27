@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gary Merlino Construction Co. Inc. | Building Seattle's Future</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Montserrat & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700,800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #ffffff;
+            color: #1a202c; /* Dark Charcoal */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-accent {
+            color: #f59e0b; /* Amber-500 */
+        }
+        
+        .bg-accent {
+            background-color: #f59e0b;
+        }
+
+        /* Hero Section Video */
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .hero-video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .hero-overlay {
+            background-color: rgba(26, 32, 44, 0.7);
+        }
+
+        /* Header Styles */
+        .header {
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        .header.scrolled {
+            background-color: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(5px);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Service Card */
+        .service-card {
+            background-color: #f8fafc; /* Slate-50 */
+            border: 1px solid #e2e8f0; /* Slate-200 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .service-icon {
+            background-color: #f59e0b;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
+        /* Project Showcase */
+        .project-card {
+            overflow: hidden;
+            position: relative;
+        }
+        .project-image {
+            transition: transform 0.5s ease;
+        }
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+        .project-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-title {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            color: white;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.4s ease 0.1s, opacity 0.4s ease 0.1s;
+        }
+        .project-card:hover .project-title {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .btn-primary {
+            background-color: #f59e0b;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #d97706; /* Amber-600 */
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 w-full z-50 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-white">GARY MERLINO <span class="text-accent">CONSTRUCTION</span></a>
+            <nav class="hidden md:flex items-center space-x-6 text-white font-bold">
+                <a href="#" class="hover:text-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+                <a href="contact.html" class="bg-accent hover:bg-amber-600 transition-colors px-4 py-2 rounded-md">Contact</a>
+            </nav>
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-white text-2xl font-bold">
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+
+    <!-- 1. Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-white text-center">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline class="hero-video" poster="images/25.jpg">
+                <!-- Using a hosted video for compatibility with browser previews -->
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-construction-site-in-a-city-4323-large.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="relative z-10 px-6" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase tracking-wide">Building the Foundations of Seattle</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">From heavy civil to paving, we deliver excellence, safety, and reliability on every project.</p>
+            <a href="#" class="btn-primary font-bold py-3 px-8 rounded-full inline-block mt-8 text-lg">Explore Our Work</a>
+        </div>
+    </section>
+
+    <!-- 2. Services Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800">Our Core Services</h2>
+                <p class="mt-2 text-gray-600 max-w-2xl mx-auto">We provide a comprehensive range of construction services to meet the demands of any project.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card p-8 text-center rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-road fa-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Asphalt Paving</h3>
+                    <p class="text-gray-600">High-quality paving solutions for roads, highways, and commercial lots.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card p-8 text-center rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hard-hat fa-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Heavy Civil</h3>
+                    <p class="text-gray-600">Expertise in large-scale civil projects including earthwork and site grading.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card p-8 text-center rounded-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-water fa-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Utilities Installation</h3>
+                    <p class="text-gray-600">Reliable installation of water, sewer, and storm drainage systems.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card p-8 text-center rounded-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-cogs fa-2x"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Site Development</h3>
+                    <p class="text-gray-600">Complete site preparation services from clearing to final grading.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Projects Section -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800">Featured Projects</h2>
+                <p class="mt-2 text-gray-600">A glimpse into our commitment to quality and excellence.</p>
+            </div>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+                <a href="#" class="project-card rounded-lg shadow-lg" data-aos="fade-up">
+                    <img src="images/2.jpg" alt="Project 1" class="project-image h-96 w-full object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project+1';">
+                    <div class="project-overlay rounded-lg"></div>
+                    <h3 class="project-title text-2xl font-bold">SeaTac Airport Expansion</h3>
+                </a>
+                 <a href="#" class="project-card rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="150">
+                    <img src="images/23.jpg" alt="Project 2" class="project-image h-96 w-full object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project+2';">
+                    <div class="project-overlay rounded-lg"></div>
+                    <h3 class="project-title text-2xl font-bold">I-405 Corridor Paving</h3>
+                </a>
+                 <a href="#" class="project-card rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/4.jpg" alt="Project 3" class="project-image h-96 w-full object-cover rounded-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project+3';">
+                    <div class="project-overlay rounded-lg"></div>
+                    <h3 class="project-title text-2xl font-bold">Downtown Seattle Utilities Upgrade</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Why Choose Us Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="images/5.jpg" class="rounded-lg shadow-2xl" alt="Construction Team" onerror="this.onerror=null;this.src='https://placehold.co/600x500/cccccc/333333?text=Our+Team';">
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">A Legacy of Trust & Quality</h2>
+                    <p class="text-gray-600 mb-6">For over 70 years, Gary Merlino Construction Co. has been a cornerstone of the Pacific Northwest's growth. Our reputation is built on an unwavering commitment to three core principles.</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-accent text-2xl mt-1 mr-4"></i><div><h4 class="font-bold text-lg">Uncompromising Safety</h4><p class="text-gray-600">The well-being of our crew and community is our top priority on every job site.</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-accent text-2xl mt-1 mr-4"></i><div><h4 class="font-bold text-lg">Superior Quality</h4><p class="text-gray-600">We use the best materials and skilled craftsmanship to deliver durable, lasting results.</p></div></li>
+                        <li class="flex items-start"><i class="fas fa-handshake text-accent text-2xl mt-1 mr-4"></i><div><h4 class="font-bold text-lg">Lasting Integrity</h4><p class="text-gray-600">We build strong relationships with our clients through honesty and transparent communication.</p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CTA Section -->
+    <section class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="text-3xl font-extrabold">Ready to Build Your Next Project?</h2>
+            <p class="mt-2 max-w-2xl mx-auto text-gray-300">Let's discuss how our expertise can bring your vision to life. Contact us today for a consultation.</p>
+            <a href="#" class="btn-primary font-bold py-3 px-8 rounded-full inline-block mt-8 text-lg">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">GARY MERLINO CONSTRUCTION</h3>
+                    <p class="text-gray-400">Building Seattle's Future, Since 1947.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Contact Info</h4>
+                    <p class="text-gray-400"><i class="fas fa-map-marker-alt w-6"></i>9125 10th Ave S, Seattle, WA 98108</p>
+                    <p class="text-gray-400 mt-2"><i class="fas fa-phone w-6"></i>(206) 762-9125</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
+                <p>&copy; <span id="year"></span> Gary Merlino Construction Co. Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Gary Merlino Construction Co. Inc.</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Montserrat & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700,800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f7fafc; /* Gray-100 */
+            color: #1a202c; /* Dark Charcoal */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-accent {
+            color: #f59e0b; /* Amber-500 */
+        }
+        
+        .bg-accent {
+            background-color: #f59e0b;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(5px);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link.active {
+            color: #f59e0b;
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            background-image: url('images/9.jpg');
+            background-size: cover;
+            background-position: center 30%;
+        }
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(26, 32, 44, 0.75);
+        }
+
+        .service-card-detailed {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card-detailed:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+        }
+        .service-icon-wrapper {
+            background-color: #f59e0b;
+            color: white;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-icon-wrapper i {
+            font-size: 3rem;
+        }
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #f59e0b;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #d97706; /* Amber-600 */
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-white">GARY MERLINO <span class="text-accent">CONSTRUCTION</span></a>
+            <nav class="hidden md:flex items-center space-x-6 text-white font-bold">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                <a href="services.html" class="nav-link active hover:text-accent transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+                <a href="contact.html" class="bg-accent hover:bg-amber-600 transition-colors px-4 py-2 rounded-md">Contact</a>
+            </nav>
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-white text-2xl font-bold">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header pt-40 pb-24">
+        <div class="page-header-overlay"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white" data-aos="fade-up">Our Capabilities</h1>
+            <p class="text-xl text-amber-300 mt-4 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">Comprehensive construction solutions delivered with expertise and precision.</p>
+        </div>
+    </section>
+
+    <!-- Services Grid Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Service 1: Asphalt Paving -->
+                <div class="service-card-detailed" data-aos="fade-up">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Asphalt Paving</h3>
+                        <p class="text-gray-600">We operate state-of-the-art asphalt plants to produce and place high-quality, durable pavement for public roadways, commercial properties, and residential developments.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2: Heavy Civil -->
+                <div class="service-card-detailed" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Heavy Civil Construction</h3>
+                        <p class="text-gray-600">Our expertise covers large-scale civil projects including mass excavation, site grading, road construction, and structural earthwork for private and public clients.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3: Utilities Installation -->
+                <div class="service-card-detailed" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Underground Utilities</h3>
+                        <p class="text-gray-600">We specialize in the safe and efficient installation of critical underground infrastructure, including water mains, storm drainage systems, and sanitary sewers.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4: Site Development -->
+                <div class="service-card-detailed" data-aos="fade-up">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Complete Site Development</h3>
+                        <p class="text-gray-600">From initial land clearing and demolition to final grading and utility hookups, we provide turnkey solutions to prepare any site for vertical construction.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5: Concrete Work -->
+                <div class="service-card-detailed" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Structural & Flatwork Concrete</h3>
+                        <p class="text-gray-600">Our crews are skilled in all areas of concrete work, including foundations, structural slabs, retaining walls, curbs, and sidewalks, ensuring strength and longevity.</p>
+                    </div>
+                </div>
+
+                <!-- Service 6: Project Management -->
+                <div class="service-card-detailed" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon-wrapper">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="text-2xl font-bold mb-3">Construction Management</h3>
+                        <p class="text-gray-600">We offer comprehensive project management services, overseeing scheduling, budgeting, and coordination to ensure your project is completed on time and on budget.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="zoom-in">
+            <h2 class="text-3xl font-extrabold">Have a Project in Mind?</h2>
+            <p class="mt-2 max-w-2xl mx-auto text-gray-300">Our team is ready to leverage our extensive capabilities to ensure your project's success. Let's build something great together.</p>
+            <a href="#" class="btn-primary font-bold py-3 px-8 rounded-full inline-block mt-8 text-lg">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">GARY MERLINO CONSTRUCTION</h3>
+                    <p class="text-gray-400">Building Seattle's Future, Since 1947.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Contact Info</h4>
+                    <p class="text-gray-400"><i class="fas fa-map-marker-alt w-6"></i>9125 10th Ave S, Seattle, WA 98108</p>
+                    <p class="text-gray-400 mt-2"><i class="fas fa-phone w-6"></i>(206) 762-9125</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
+                <p>&copy; <span id="year"></span> Gary Merlino Construction Co. Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

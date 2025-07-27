@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Gary Merlino Construction Co. Inc.</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Montserrat & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700,800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f7fafc; /* Gray-100 */
+            color: #1a202c; /* Dark Charcoal */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-accent {
+            color: #f59e0b; /* Amber-500 */
+        }
+        
+        .bg-accent {
+            background-color: #f59e0b;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(5px);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link.active {
+            color: #f59e0b;
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            background-image: url('images/14.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(26, 32, 44, 0.75);
+        }
+
+        /* Contact Form */
+        .form-input {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            color: #2d3748;
+            border-radius: 0.375rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+        }
+        .contact-icon {
+            color: #f59e0b;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #f59e0b;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            padding: 0.875rem;
+            font-weight: bold;
+            border-radius: 0.375rem;
+        }
+        .btn-primary:hover {
+            background-color: #d97706; /* Amber-600 */
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-white">GARY MERLINO <span class="text-accent">CONSTRUCTION</span></a>
+            <nav class="hidden md:flex items-center space-x-6 text-white font-bold">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+                <a href="contact.html" class="nav-link active bg-accent hover:bg-amber-600 transition-colors px-4 py-2 rounded-md">Contact</a>
+            </nav>
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-white text-2xl font-bold">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header pt-40 pb-24">
+        <div class="page-header-overlay"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white" data-aos="fade-up">Contact Us</h1>
+            <p class="text-xl text-amber-300 mt-4 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">We're ready to listen. Let's build the future together.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-5 gap-12">
+                
+                <!-- Left: Contact Info -->
+                <div class="lg:col-span-2" data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-gray-800 mb-6">Get in Touch</h2>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt contact-icon w-8 text-center"></i>
+                        <div>
+                            <h4 class="text-lg font-bold">Headquarters</h4>
+                            <p class="text-gray-600">9125 10th Ave S, Seattle, WA 98108</p>
+                        </div>
+                    </div>
+
+                     <div class="contact-info-item">
+                        <i class="fas fa-phone contact-icon w-8 text-center"></i>
+                        <div>
+                            <h4 class="text-lg font-bold">Phone</h4>
+                            <p class="text-gray-600">(206) 762-9125</p>
+                        </div>
+                    </div>
+
+                     <div class="contact-info-item">
+                        <i class="fas fa-envelope contact-icon w-8 text-center"></i>
+                        <div>
+                            <h4 class="text-lg font-bold">Email</h4>
+                            <p class="text-gray-600">bids@merlinoconstruction.com</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="lg:col-span-3" data-aos="fade-left" data-aos-delay="150">
+                     <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 class="text-3xl font-extrabold text-gray-800 mb-6">Send a Message</h2>
+                        <form action="#" method="POST">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 mb-2 font-bold">Full Name</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                 <div>
+                                    <label for="email" class="block text-gray-700 mb-2 font-bold">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                            </div>
+                             <div class="mb-6">
+                                <label for="subject" class="block text-gray-700 mb-2 font-bold">Subject</label>
+                                <input type="text" id="subject" name="subject" class="form-input" required>
+                            </div>
+                             <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2 font-bold">Your Message</label>
+                                <textarea id="message" name="message" rows="6" class="form-input" required></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">GARY MERLINO CONSTRUCTION</h3>
+                    <p class="text-gray-400">Building Seattle's Future, Since 1947.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Contact Info</h4>
+                    <p class="text-gray-400"><i class="fas fa-map-marker-alt w-6"></i>9125 10th Ave S, Seattle, WA 98108</p>
+                    <p class="text-gray-400 mt-2"><i class="fas fa-phone w-6"></i>(206) 762-9125</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
+                <p>&copy; <span id="year"></span> Gary Merlino Construction Co. Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+</body>
+</html>

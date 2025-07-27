@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects | Gary Merlino Construction Co. Inc.</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Montserrat & Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700,800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f7fafc; /* Gray-100 */
+            color: #1a202c; /* Dark Charcoal */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-accent {
+            color: #f59e0b; /* Amber-500 */
+        }
+        
+        .bg-accent {
+            background-color: #f59e0b;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(5px);
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link.active {
+            color: #f59e0b;
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            background-image: url('images/10.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .page-header-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(26, 32, 44, 0.75);
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .filter-btn:hover {
+            background-color: #cbd5e0;
+        }
+        .filter-btn.active {
+            background-color: #f59e0b;
+            color: white;
+        }
+
+        /* Project Card */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .project-card img {
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .project-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+        }
+        .project-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            color: white;
+        }
+        .project-card-category {
+            font-size: 0.875rem;
+            color: #f59e0b;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .project-card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-top: 0.25rem;
+        }
+        
+        .btn-primary {
+            background-color: #f59e0b;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #d97706; /* Amber-600 */
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="header fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-extrabold text-white">GARY MERLINO <span class="text-accent">CONSTRUCTION</span></a>
+            <nav class="hidden md:flex items-center space-x-6 text-white font-bold">
+                <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+                <a href="about.html" class="hover:text-accent transition-colors">About</a>
+                <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+                <a href="projects.html" class="nav-link active hover:text-accent transition-colors">Projects</a>
+                <a href="contact.html" class="bg-accent hover:bg-amber-600 transition-colors px-4 py-2 rounded-md">Contact</a>
+            </nav>
+            <button class="md:hidden text-white" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+    
+    <!-- Mobile Menu (hidden by default) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-gray-900/95 z-40">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-white text-2xl font-bold">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header pt-40 pb-24">
+        <div class="page-header-overlay"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-white" data-aos="fade-up">Our Work</h1>
+            <p class="text-xl text-amber-300 mt-4 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">A portfolio of projects demonstrating our commitment to quality and excellence.</p>
+        </div>
+    </section>
+
+    <!-- Projects Gallery Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <!-- Filter Buttons -->
+            <div id="filter-container" class="flex flex-wrap justify-center gap-2 mb-12" data-aos="fade-up">
+                <button class="filter-btn active font-bold py-2 px-4 rounded-full" data-filter="all">All Projects</button>
+                <button class="filter-btn font-bold py-2 px-4 rounded-full" data-filter="paving">Asphalt Paving</button>
+                <button class="filter-btn font-bold py-2 px-4 rounded-full" data-filter="civil">Heavy Civil</button>
+                <button class="filter-btn font-bold py-2 px-4 rounded-full" data-filter="utilities">Utilities</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <a href="#" class="project-card" data-category="civil" data-aos="fade-up">
+                    <img src="images/2.jpg" alt="SeaTac Airport Expansion" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Heavy Civil</p>
+                        <h3 class="project-card-title">SeaTac Airport Expansion</h3>
+                    </div>
+                </a>
+                <!-- Project 2 -->
+                <a href="#" class="project-card" data-category="paving" data-aos="fade-up">
+                    <img src="images/23.jpg" alt="I-405 Corridor Paving" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Asphalt Paving</p>
+                        <h3 class="project-card-title">I-405 Corridor Paving</h3>
+                    </div>
+                </a>
+                <!-- Project 3 -->
+                <a href="#" class="project-card" data-category="utilities" data-aos="fade-up">
+                    <img src="images/4.jpg" alt="Downtown Utilities Upgrade" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Utilities</p>
+                        <h3 class="project-card-title">Downtown Utilities Upgrade</h3>
+                    </div>
+                </a>
+                <!-- Project 4 -->
+                <a href="#" class="project-card" data-category="paving" data-aos="fade-up">
+                    <img src="images/11.jpg" alt="Commercial Lot Paving" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Asphalt Paving</p>
+                        <h3 class="project-card-title">Bellevue Commercial Center</h3>
+                    </div>
+                </a>
+                <!-- Project 5 -->
+                <a href="#" class="project-card" data-category="civil" data-aos="fade-up">
+                    <img src="images/12.jpg" alt="Site Development" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Heavy Civil</p>
+                        <h3 class="project-card-title">South Lake Union Site Development</h3>
+                    </div>
+                </a>
+                <!-- Project 6 -->
+                <a href="#" class="project-card" data-category="utilities" data-aos="fade-up">
+                    <img src="images/13.jpg" alt="Stormwater System" class="h-80 w-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Project';">
+                    <div class="project-card-overlay"></div>
+                    <div class="project-card-content">
+                        <p class="project-card-category">Utilities</p>
+                        <h3 class="project-card-title">Renton Stormwater System</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-2">GARY MERLINO CONSTRUCTION</h3>
+                    <p class="text-gray-400">Building Seattle's Future, Since 1947.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Contact Info</h4>
+                    <p class="text-gray-400"><i class="fas fa-map-marker-alt w-6"></i>9125 10th Ave S, Seattle, WA 98108</p>
+                    <p class="text-gray-400 mt-2"><i class="fas fa-phone w-6"></i>(206) 762-9125</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
+                <p>&copy; <span id="year"></span> Gary Merlino Construction Co. Inc. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS (Animate On Scroll) Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Project Filter Logic
+        const filterContainer = document.getElementById('filter-container');
+        const projectGrid = document.getElementById('project-grid');
+        const projects = Array.from(projectGrid.children);
+
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON') return;
+
+            // Update active button state
+            const activeBtn = filterContainer.querySelector('.active');
+            activeBtn.classList.remove('active');
+            e.target.classList.add('active');
+
+            const filter = e.target.dataset.filter;
+
+            projects.forEach(project => {
+                const category = project.dataset.category;
+                if (filter === 'all' || filter === category) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
